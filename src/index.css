@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+@utility bg-radial-gradient {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
