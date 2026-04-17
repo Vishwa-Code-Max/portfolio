@@ -72,7 +72,6 @@ const Master = () => {
 
             if (newIndex !== currentIndexRef.current) {
               currentIndexRef.current = newIndex;
-
               if (imageRef.current) {
                 imageRef.current.src = dropletArray[newIndex];
               }

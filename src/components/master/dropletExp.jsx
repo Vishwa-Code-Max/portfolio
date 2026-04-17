@@ -14,4 +14,6 @@ const DropletExp = forwardRef(({ dropletArray }, ref) => {
   );
 });
 
+DropletExp.displayName = "DropletExp";
+
 export default DropletExp;

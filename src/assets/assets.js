@@ -750,6 +750,12 @@ export const assets = {
     me: me,
     she: she,
   },
+  models: {
+    sword: "/models/sword11-transformed.glb",
+    compass: "/models/compass-transformed.glb",
+    armor: "/models/armor1-transformed.glb",
+    bird: "/models/bird_flying_animation.glb",
+  },
   droplet: {
     drop1: drop1,
     drop2: drop2,

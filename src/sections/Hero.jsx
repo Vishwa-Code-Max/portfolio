@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { assets } from "../assets/assets.js";
 import HeroExp from "../components/hero/HeroExp.jsx";
 import gsap from "gsap";
@@ -8,7 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const sectionRef = useRef(null);
-  const [index, setIndex] = useState(0);
+  const imageRef = useRef(null);
+  const currentIndexRef = useRef(0);
   const imageArray = Object.values(assets.images);
 
   useEffect(() => {
@@ -19,13 +20,17 @@ const Hero = () => {
         start: "top top",
         end: "+=300%",
         pin: true,
-        scrub: 1.5, // 🔥 smoother scrub
+        scrub: 1.2, 
         onUpdate: (self) => {
           const newIndex = Math.floor(
             self.progress * (imageArray.length - 1)
           );
-          if (newIndex !== index) {
-            setIndex(newIndex);
+          
+          if (newIndex !== currentIndexRef.current) {
+            currentIndexRef.current = newIndex;
+            if (imageRef.current) {
+              imageRef.current.src = imageArray[newIndex];
+            }
           }
         },
       });
@@ -59,7 +64,7 @@ const Hero = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full">
         <div className="w-[80vw] h-full flex -translate-y-20 p-10">
-          <HeroExp imageArray={imageArray} currentIndex={index} />
+          <HeroExp ref={imageRef} imageArray={imageArray} currentIndex={0} />
         </div>
       </div>
     </section>
